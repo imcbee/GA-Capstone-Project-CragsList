@@ -7,6 +7,7 @@ const router = express.Router();
 
 //! ---------------------Importing Models-----------------------
 const { Journal, Comments } = require("../models")
+const { handleValidateOwnership, requireToken } = require("../middleware/auth");
 
 //! --------------------------New Route-------------------------------
 router.get('/new', async (req, res, next) => {

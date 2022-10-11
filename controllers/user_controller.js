@@ -21,7 +21,17 @@ router.post("/register", async (req, res, next) => {
         console.log("Testing: ", newUser);
         // what happens if null is return 
         // mongoose - virtuals -> remove password from returned JSON
-        res.status(200).json({currentUser: newUser, isLoggedIn: true, });
+        if(newUser){
+            req.body.password = pwStore;
+            const authenticatedUserToken = createUserToken(req, newUser);
+            res.status(201).json({
+                user: newUser,
+                isLoggedIn: true,
+                token: authenticatedUserToken,
+              });
+        }else{
+            res.status(400).json({error: "Something went wrong"})
+        }
       }catch(error){
         console.log(error);
         res.status(400).json({error: error});
