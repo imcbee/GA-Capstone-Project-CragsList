@@ -11,7 +11,8 @@ const array = [{
     tips: "use heel-hook on 2nd move, cut feet on crux, trust the pinch",
     picture: "https://i.imgur.com/XkWfxzQ.jpg",
     likes: 5,
-    date: new Date().toLocaleDateString()
+    date: new Date().toLocaleDateString(),
+    user: "6345a070b1c34e65fbe299cc"
 },
 {
     name: "Pink Unicorns",
@@ -21,7 +22,8 @@ const array = [{
     tips: "campus board all day, everyday",
     picture: "https://i.imgur.com/JXFJHUU.jpeg",
     likes: 20,
-    date: new Date().toLocaleDateString()
+    date: new Date().toLocaleDateString(),
+    user: "6345a070b1c34e65fbe299cc"
 },
 {
     name: "Papa Murphy's Divorce",
@@ -31,7 +33,8 @@ const array = [{
     tips: "skip this one",
     picture: "https://i.imgur.com/xc0LsMR.png",
     likes: 2,
-    date: new Date().toLocaleDateString()
+    date: new Date().toLocaleDateString(),
+    user: "6345a070b1c34e65fbe299cc"
 },
 {
     name: "The Coom Zone",
@@ -41,7 +44,8 @@ const array = [{
     tips: "skip this one",
     picture: "https://i.imgur.com/KyiIgMF.jpeg",
     likes: 2,
-    date: new Date().toLocaleDateString()
+    date: new Date().toLocaleDateString(),
+    user: "6345a070b1c34e65fbe299cc"
 },
 ]
 
@@ -51,4 +55,4 @@ function seedJournalsDb(){
 
 seedJournalsDb()
 
-setTimeout(()=> {process.exit()}, 3000)
+

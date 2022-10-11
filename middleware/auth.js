@@ -55,5 +55,5 @@ module.exports = {
 }
 
 
-console.log(Strategy)
-console.log(ExtractJwt)
+// console.log(Strategy)
+// console.log(ExtractJwt)
