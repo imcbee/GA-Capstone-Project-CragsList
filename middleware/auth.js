@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 //! ---------------------Importing Auth Models--------------------------
 const { Strategy, ExtractJwt } = require('passport-jwt')
 
-const User = require('../models')
+const { User }= require('../models')
 
 //! ---------------------Configuration-----------------------------------
 const secret = process.env.JWT_SECRET || 'ilovecodingya'

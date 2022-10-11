@@ -7,7 +7,7 @@ const {saltRounds} = process.env
 
 //! ------------------------Importing Models-------------------------
 const {User} = require('../models')
-const {createUserToken , requireUserToken} = require('../middleware/auth')
+const {createUserToken , requireToken} = require('../middleware/auth')
 
 
 //! ------------------------Auth Register Route-----------------------
@@ -53,5 +53,24 @@ router.post("/login", async (req, res, next) => {
       }
 });
 
+//! ------------------------Auth Logout Route--------------------------
+router.get( "/logout", requireToken, (req, res, next) => {
+    try {
+        const currentUser = req.user.username
+        console.log(currentUser)
+        delete req.user
+        res.status(200).json({
+            message: `${currentUser} currently logged out`,
+            isLoggedIn: false,
+            token: "",
+        });
+        
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+  });
+  
+  
 
 module.exports = router;

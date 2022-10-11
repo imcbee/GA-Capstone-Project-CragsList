@@ -27,7 +27,7 @@ router.get('/:id', async (req, res, next) => {
         const showComment = await Comments.findById(req.params.id)
         console.log(showComment)
         const journal = await Journal.findById(req.params.id)
-        res.send(showComment)
+        res.status(201).json(showComment)
     }catch(error){
         console.log(err);
         res.redirect('/404')
@@ -39,7 +39,7 @@ router.get('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
     try{
         const deleteComment = await Comments.findByIdAndDelete(req.params.id)
-        res.redirect(`/journal/${req.params.id}`)
+        
     }catch(error) {
         console.log(err);
         res.redirect('/404')
@@ -63,7 +63,6 @@ router.put('/:id', async(req, res, next) => {
     try{
         const updatedComment = req.body
         await Comments.findByIdAndUpdate(req.params.id, updatedComment, {new: true})
-        res.redirect(`/journal/${req.params.id}`)
     }catch(error) {
         console.log(err);
         res.redirect('/404')
