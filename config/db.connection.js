@@ -3,7 +3,6 @@ require('dotenv').config();
 
 
 const connectionStr = process.env.MONGODB_URI;
-console.log("test: ", connectionStr);
 mongoose.connect(connectionStr);
 
 mongoose.connection.on('connected', () => {

@@ -1,11 +1,12 @@
 //! ---------------------Importing Statments-----------------------
 const express = require('express');
 const router = express.Router();
-const { Journal } = require("../models")
 
 //! --------------------------Middleware----------------------------
 
+
 //! ---------------------Importing Models-----------------------
+const { Journal } = require("../models")
 
 
 
@@ -74,7 +75,8 @@ router.delete("/:id", async (req, res, next) => {
 router.get('/:id/edit', async (req, res, next) => {
     try{
         const editJournal = await Journal.findById(req.params.id)
-        return res.redirect(`/${req.params.id}`)
+        res.send('edit route')
+        
     }catch(error){
         console.log(error);
         res.redirect('/404')
@@ -86,8 +88,8 @@ router.get('/:id/edit', async (req, res, next) => {
 router.put('/:id', async(req, res, next) => {
     try{
         const updatedJournal = req.body;
-        await Journal.findByIdAndUpdate(req.params, updatedJournal, {new: true})
-        res.send('edit route')
+        await Journal.findByIdAndUpdate(req.params.id, updatedJournal, {new: true});
+        res.redirect(`/journal/${req.params.id}`);
     }catch(error){
         console.log(error);
         res.redirect('/404')
