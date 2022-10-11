@@ -1,8 +1,8 @@
-const db = require("./Comments")
+const {Comments} = require("./")
 const mongoose = require('mongoose')
 
 function seedCommentsDb(){
-    db.Comments.insertMany(
+    Comments.insertMany(
     [
         {
             comments: "Great job! Your form looks good and you make it look easy :)", 
@@ -34,5 +34,7 @@ function seedCommentsDb(){
         },
     ])
 }
+
+seedCommentsDb()
 
 module.exports = seedCommentsDb

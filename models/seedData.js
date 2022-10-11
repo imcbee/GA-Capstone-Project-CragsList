@@ -49,6 +49,6 @@ function seedJournalsDb(){
     Journal.insertMany(array)
 };
 
-
 seedJournalsDb()
 
+setTimeout(()=> {process.exit()}, 3000)
