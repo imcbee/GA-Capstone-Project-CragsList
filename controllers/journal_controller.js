@@ -8,9 +8,6 @@ const router = express.Router();
 //! ---------------------Importing Models-----------------------
 const { Journal } = require("../models")
 
-
-
-
 //! --------------------------New Route-------------------------------
 router.get('/new', async (req, res, next) => {
     try{
