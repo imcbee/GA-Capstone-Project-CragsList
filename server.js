@@ -5,7 +5,7 @@ require("dotenv").config();
 const {PORT, MONGODB_URI} = process.env;
 require('./config/db.connection')
 const mongoose = require('mongoose')
-const {journalController, commentsController} = require("./controllers/index")
+const {journalController, commentsController, userController} = require("./controllers/index")
 const { Journal } = require('./models')
 const cors = require('cors');
 const morgan = require('morgan');
@@ -18,7 +18,7 @@ app.use(morgan("dev"))
 
 app.use("/journal", journalController);
 app.use("/comments", commentsController);
-// app.use("/user", userController);
+app.use("/user", userController);
 
 
 //! ---------------------------HOME ROUTE----------------------------

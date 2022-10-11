@@ -11,7 +11,7 @@ const { Journal } = require("../models")
 //! --------------------------New Route-------------------------------
 router.get('/new', async (req, res, next) => {
     try{
-        res.send('journal creation view')
+        res.status(200).send('journal creation view');
     }catch (error) {
         console.log(error);
         res.redirect('/404')
@@ -24,6 +24,7 @@ router.post('/new', async (req, res, next) => {
     try{
         console.log(req.body)
         const createJournal = await Journal.create(req.body);
+        res.status(200).send('Successful!')
         
     }catch (error) {
         console.log(error);
@@ -36,18 +37,19 @@ router.post('/new', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     try{
         const findJournal = await Journal.findById(req.params.id)
-        res.send(findJournal)
+        res.status(200).send(findJournal)
     }catch(error){
         console.log(error);
         res.redirect('/404')
         res.status(400).json(error);
     }
 })
+
 //! --------------------------Index Route-----------------------------
 router.get("/", async(req, res, next) => {
     try{
         const allJournal = await Journal.find()
-        res.send(allJournal)
+        res.status(200).send(allJournal)
     }catch(error){
         console.log(error);
         res.redirect('/404')
@@ -60,7 +62,7 @@ router.get("/", async(req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
     try{
         const deleteJournal = await Journal.findByIdAndDelete(req.params.id)
-        return res.redirect('/')
+        res.redirect('/')
     }catch(error){
         console.log(error);
         res.redirect('/404')
@@ -72,7 +74,7 @@ router.delete("/:id", async (req, res, next) => {
 router.get('/:id/edit', async (req, res, next) => {
     try{
         const editJournal = await Journal.findById(req.params.id)
-        res.send('edit route')
+        res.status(200).send('edit route')
         
     }catch(error){
         console.log(error);

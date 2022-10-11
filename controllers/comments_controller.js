@@ -7,12 +7,13 @@ const { Comments, Journal } = require("../models")
 
 //! --------------------------Middleware-----------------------------
 
-//! --------------------------New Route-------------------------------
+
 //! --------------------------Create Route----------------------------
 router.post('/:id', async(req, res, next) => {
     try{
         const newComment = await Comments.create(req.body)
-        res.redirect
+        res.status(200).send("Successful!")
+        // res.redirect(`/journal/${req.params.id}`)
     }catch(error){
         console.log(err);
         res.redirect('/404')
@@ -24,7 +25,9 @@ router.post('/:id', async(req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     try{
         const showComment = await Comments.findById(req.params.id)
+        console.log(showComment)
         const journal = await Journal.findById(req.params.id)
+        res.send(showComment)
     }catch(error){
         console.log(err);
         res.redirect('/404')
@@ -32,7 +35,6 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
-//! --------------------------Index Route-----------------------------
 //! --------------------------Destroy Route---------------------------
 router.delete('/:id', async (req, res, next) => {
     try{
@@ -55,11 +57,12 @@ router.get('/:id/edit', async(req, res, next) => {
         res.status(400).json(error);
     }
 })
+
 //! --------------------------Update Route----------------------------
 router.put('/:id', async(req, res, next) => {
     try{
         const updatedComment = req.body
-        const updateComment = await Comments.findByIdAndUpdate(req.params.id, updatedComment, {new: true})
+        await Comments.findByIdAndUpdate(req.params.id, updatedComment, {new: true})
         res.redirect(`/journal/${req.params.id}`)
     }catch(error) {
         console.log(err);

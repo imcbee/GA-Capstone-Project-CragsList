@@ -1,4 +1,4 @@
-const db = require("./User")
+const db = require("../models")
 const mongoose = require('mongoose')
 
 function seedUserDb() {
