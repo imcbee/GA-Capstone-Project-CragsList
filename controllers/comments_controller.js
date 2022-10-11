@@ -34,9 +34,38 @@ router.get('/:id', async (req, res, next) => {
 
 //! --------------------------Index Route-----------------------------
 //! --------------------------Destroy Route---------------------------
-router.delete('')
-//! --------------------------Edit Route------------------------------
-//! --------------------------Update Route----------------------------
+router.delete('/:id', async (req, res, next) => {
+    try{
+        const deleteComment = await Comments.findByIdAndDelete(req.params.id)
+        res.redirect(`/journal/${req.params.id}`)
+    }catch(error) {
+        console.log(err);
+        res.redirect('/404')
+        res.status(400).json(error);
+    }
+})
 
+//! --------------------------Edit Route------------------------------
+router.get('/:id/edit', async(req, res, next) => {
+    try{
+        const editComment = await Comments.findById(req.params.id);
+    }catch(error) {
+        console.log(err);
+        res.redirect('/404')
+        res.status(400).json(error);
+    }
+})
+//! --------------------------Update Route----------------------------
+router.put('/:id', async(req, res, next) => {
+    try{
+        const updatedComment = req.body
+        const updateComment = await Comments.findByIdAndUpdate(req.params.id, updatedComment, {new: true})
+        res.redirect(`/journal/${req.params.id}`)
+    }catch(error) {
+        console.log(err);
+        res.redirect('/404')
+        res.status(400).json(error);
+    }
+})
 
 module.exports = router;
