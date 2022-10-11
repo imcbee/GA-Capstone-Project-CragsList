@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 //! ---------------------Importing Models-----------------------
-const { Journal } = require("../models")
+const { Journal, Comments } = require("../models")
 
 //! --------------------------New Route-------------------------------
 router.get('/new', async (req, res, next) => {
