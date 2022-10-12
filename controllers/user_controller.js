@@ -6,7 +6,7 @@ require('dotenv').config()
 const {saltRounds} = process.env
 
 //! ------------------------Importing Models-------------------------
-const {User} = require('../models')
+const {User, Journal} = require('../models')
 const {createUserToken , requireToken} = require('../middleware/auth')
 
 
@@ -71,6 +71,18 @@ router.get( "/logout", requireToken, (req, res, next) => {
     }
   });
   
-  
+  //! ------------------------User Index Route--------------------------
+  router.get('/index', requireToken, async(req, res, next) => {
+    try{
+        // console.log(req.user._id)
+        const userJournals = await Journal.find({user: req.user._id})
+        console.log(userJournals)
+        res.status(200).json(userJournals)
+    } catch (error) {
+        console.log(error);
+        res.redirect('/404')
+        res.status(400).json(error);
+    }
+  })
 
 module.exports = router;
