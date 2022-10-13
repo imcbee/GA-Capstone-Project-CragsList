@@ -34,7 +34,7 @@ passport.initialize()
 
 const requireToken = passport.authenticate('jwt', {session: false})
 
-
+//! ---------------------handleValidateOwnership-----------------------------------
 const createUserToken = (req, user) => {
     if(
         !user ||
@@ -48,6 +48,7 @@ const createUserToken = (req, user) => {
     return jwt.sign({id: user._id},secret,{expiresIn: 36000 })
 }
 
+//! ---------------------handleValidateOwnership-----------------------------------
 const handleValidateOwnership = (req, document) => {
     const ownerId = document.owner._id || document.owner; 
 
