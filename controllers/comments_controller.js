@@ -6,7 +6,9 @@ const router = express.Router();
 const { Comments, Journal } = require("../models");
 
 //! --------------------------Middleware-----------------------------
-router.get("/:id", async (req, res, next) => {
+
+//! --------------------------New Route-----------------------------
+router.get("/new", async (req, res, next) => {
   try {
     res.status(201).send("new route");
   } catch (error) {
