@@ -20,7 +20,7 @@ router.get("/new", async (req, res, next) => {
 });
 
 //! --------------------------Create Route----------------------------
-router.post("/new", requireToken, async (req, res, next) => {
+router.post("/new", async (req, res, next) => {
   try {
     console.log(req.body);
     const createJournal = await Journal.create(req.body);
@@ -57,9 +57,9 @@ router.get("/", async (req, res, next) => {
 });
 
 //! --------------------------Destroy Route---------------------------
-router.delete("/:id", requireToken, async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
-    handleValidateOwnership(req, await Journal.findById(req.params.id));
+    // handleValidateOwnership(req, await Journal.findById(req.params.id));
     const deleteJournal = await Journal.findByIdAndDelete(req.params.id);
     res.status(201).json(deleteJournal);
   } catch (error) {
@@ -82,10 +82,10 @@ router.get("/:id/edit", async (req, res, next) => {
 });
 
 //! --------------------------Update Route----------------------------
-router.put("/:id", requireToken, async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   try {
     const updatedJournal = req.body;
-    handleValidateOwnership(req, await Journal.findById(req.params.id));
+    // handleValidateOwnership(req, await Journal.findById(req.params.id));
     res.status(201).json(
       await Journal.findByIdAndUpdate(req.params.id, updatedJournal, {
         new: true,
