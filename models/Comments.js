@@ -9,7 +9,7 @@ const commentsSchema = new Schema({
   notHelpful: { type: Number },
   date: { type: Date, default: new Date().toLocaleDateString() },
   journal: { type: mongoose.Types.ObjectId, ref: "Journal" },
-  user: { type: mongoose.Types.ObjectId, required: true, ref: "User" },
+  user: { type: mongoose.Types.ObjectId, ref: "User" },
 });
 
 const Comments = mongoose.model("Comments", commentsSchema);

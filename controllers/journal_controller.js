@@ -24,7 +24,7 @@ router.post("/new", async (req, res, next) => {
   try {
     console.log(req.body);
     const createJournal = await Journal.create(req.body);
-    res.status(201).send("Successful!");
+    res.status(201).send(JSON.stringify("Successful!"));
   } catch (error) {
     console.log(error);
     res.redirect("/404");
@@ -35,7 +35,10 @@ router.post("/new", async (req, res, next) => {
 //! --------------------------Show Route------------------------------
 router.get("/:id", async (req, res, next) => {
   try {
-    const findJournal = await Journal.findById(req.params.id);
+    const findJournal = await Journal.findById(req.params.id).populate(
+      "comments"
+    );
+
     res.status(201).json(findJournal);
   } catch (error) {
     console.log(error);

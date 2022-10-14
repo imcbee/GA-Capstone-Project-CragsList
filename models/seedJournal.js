@@ -1,20 +1,24 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 // const db = require('./Journal')
-require('../config/db.connection')
-const  {Journal}  = require('./')
+require("../config/db.connection");
+const { Journal } = require("./");
+const { deleteMany } = require("./Journal");
 
-const array = [{
+const array = [
+  {
     name: "Lonely Yellow",
     location: "Earth Treks Crystal City",
     difficulty: "v5",
-    description: "This problem really tested my crimp strength at the beginning of the route.  In the middle of the route, the crux was a pinch and cut feet to reach at the.  Top out was easy.  Overall, a great v5 and definitely pushed my skills!",
+    description:
+      "This problem really tested my crimp strength at the beginning of the route.  In the middle of the route, the crux was a pinch and cut feet to reach at the.  Top out was easy.  Overall, a great v5 and definitely pushed my skills!",
     tips: "use heel-hook on 2nd move, cut feet on crux, trust the pinch",
     picture: "https://i.imgur.com/XkWfxzQ.jpg",
     likes: 5,
     date: new Date().toLocaleDateString(),
-    user: "6345a070b1c34e65fbe299cc"
-},
-{
+    user: "6345a070b1c34e65fbe299cc",
+    comments: "634835ce4fceee5d988ad570",
+  },
+  {
     name: "Pink Unicorns",
     location: "Earth Treks Rockville, MD",
     difficulty: "v9",
@@ -23,9 +27,9 @@ const array = [{
     picture: "https://i.imgur.com/JXFJHUU.jpeg",
     likes: 20,
     date: new Date().toLocaleDateString(),
-    user: "6345a070b1c34e65fbe299cc"
-},
-{
+    user: "6345a070b1c34e65fbe299cc",
+  },
+  {
     name: "Papa Murphy's Divorce",
     location: "Macho Boulder Gym",
     difficulty: "v3",
@@ -34,9 +38,9 @@ const array = [{
     picture: "https://i.imgur.com/xc0LsMR.png",
     likes: 2,
     date: new Date().toLocaleDateString(),
-    user: "6345a070b1c34e65fbe299cc"
-},
-{
+    user: "6345a070b1c34e65fbe299cc",
+  },
+  {
     name: "The Coom Zone",
     location: "My Hom Gym",
     difficulty: "v6",
@@ -45,14 +49,13 @@ const array = [{
     picture: "https://i.imgur.com/KyiIgMF.jpeg",
     likes: 2,
     date: new Date().toLocaleDateString(),
-    user: "6345a070b1c34e65fbe299cc"
-},
-]
+    user: "6345a070b1c34e65fbe299cc",
+  },
+];
 
-function seedJournalsDb(){
-    Journal.insertMany(array)
-};
+async function seedJournalsDb() {
+  await Journal.deleteMany();
+  Journal.insertMany(array);
+}
 
-seedJournalsDb()
-
-
+seedJournalsDb();
