@@ -12,8 +12,10 @@ const { createUserToken, requireToken } = require("../middleware/auth");
 //! ------------------------Auth Register Route-----------------------
 router.post("/register", async (req, res, next) => {
   try {
-    const salt = await bcrypt.genSalt(saltRounds);
+    console.log(saltRounds);
+    const salt = await bcrypt.genSalt(10);
     const passwordHash = await bcrypt.hash(req.body.password, salt);
+    const pwStore = req.body.password;
     req.body.password = passwordHash;
     console.log("Req: ", req.body);
     const newUser = await User.create(req.body);
