@@ -59,6 +59,7 @@ router.get("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
   try {
     const deleteComment = await Comments.findByIdAndDelete(req.params.id);
+    res.status(201).json(deleteComment);
   } catch (error) {
     console.log(error);
     res.redirect("/404");
