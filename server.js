@@ -42,6 +42,6 @@ app.get("*", (req, res) => {
 });
 
 //! ---------------------------LISTENER----------------------------
-app.listen(PORT, () => {
+app.listen(PORT || 4000, () => {
   console.log(`Listening on port ${PORT} 👍 👍 👍`);
 });
