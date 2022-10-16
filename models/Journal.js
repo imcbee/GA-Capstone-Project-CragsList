@@ -8,7 +8,7 @@ const journalSchema = new Schema({
   difficulty: { type: String, required: true },
   tips: { type: String },
   description: { type: String, required: true },
-  picture: { type: String }, // pictures hosted on imgur
+  picture: { type: String },
   likes: { type: Number },
   date: { type: Date, default: new Date().toLocaleDateString() },
   user: { type: mongoose.Types.ObjectId, ref: "User" },

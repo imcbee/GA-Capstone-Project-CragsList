@@ -64,6 +64,3 @@ module.exports = {
   createUserToken,
   handleValidateOwnership,
 };
-
-// console.log(Strategy)
-// console.log(ExtractJwt)

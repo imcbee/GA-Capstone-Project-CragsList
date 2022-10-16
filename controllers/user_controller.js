@@ -20,8 +20,6 @@ router.post("/register", async (req, res, next) => {
     console.log("Req: ", req.body);
     const newUser = await User.create(req.body);
     console.log("Testing: ", newUser);
-    // what happens if null is return
-    // mongoose - virtuals -> remove password from returned JSON
     if (newUser) {
       req.body.password = pwStore;
       const authenticatedUserToken = createUserToken(req, newUser);

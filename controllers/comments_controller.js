@@ -21,20 +21,11 @@ router.get("/new", async (req, res, next) => {
 //! --------------------------Create Route----------------------------
 router.post("/new", async (req, res, next) => {
   try {
-    // create comment with comment id
-    // take comment id and add to jounral's comments
     const newComment = await Comments.create(req.body);
     const journal = await Journal.findById(req.body.journal);
     journal.comments.push(newComment._id);
-    // const likes = await Journal.findById(req.body.likes);
-    // likes += 1;
-    // likes.save();
     journal.save();
-    //where to push?
-    // journal.comments.push()
-
     res.status(200).send("Successful!");
-    // res.redirect(`/journal/${req.params.id}`)
   } catch (error) {
     console.log(error);
     res.redirect("/404");
