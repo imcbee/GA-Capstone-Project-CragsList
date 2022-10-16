@@ -77,7 +77,7 @@ Wireframes were created using Figma, follow the link below to see more details.
 ![Screen Shot 2022-10-15 at 10 22 40 PM](https://user-images.githubusercontent.com/107007458/196014898-3912f9e8-1dfd-45a9-88e1-ec902c326b5b.png)
 
 ## Tech Stack:<a name="techstack"></a>
-### Node.js and Express,js:
+### Node.js and Express.js:
 Our Back-end was built using Node.js as the environment with Express as the web application framework.
 
 ### React.js:
