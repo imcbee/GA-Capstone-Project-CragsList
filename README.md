@@ -63,17 +63,17 @@ Welcome to CragsList!  This is my capstone project for General Assembly's Softwa
 - Helpful comments
 
 ## Wireframe:<a name="wireframe"></a>
-Wireframes were created using Figma, follow the link below to see more details.  
+Wireframes were created using Figma, follow the link below to see more details.    
 [Figma/Figjam Link](https://www.figma.com/file/sLaALmffReU7TuAs1zlc1d/GA-Capstone-Project---CragsList---Backend?node-id=2%3A181)
 
-**Back-end Wireframe:**
+**Back-end Wireframe:**. 
 ![Screen Shot 2022-10-15 at 10 06 01 PM](https://user-images.githubusercontent.com/107007458/196014523-d750877d-4470-4071-98ad-963937eb5dd1.png)
 
-**Front-end Wireframe:**
+**Front-end Wireframe:**. 
 ![Screen Shot 2022-10-15 at 10 11 13 PM](https://user-images.githubusercontent.com/107007458/196014611-a102b0d2-295e-4d9d-ac91-b96c01a18219.png)
 
-## Example Site Pictures:<a name="examplepictures"></a>
-![Screen Shot 2022-10-15 at 10 21 05 PM](https://user-images.githubusercontent.com/107007458/196014867-9aea24f9-8e7e-4e39-aa54-0cdf1a110d7a.png)
+## Example Site Pictures:<a name="examplepictures"></a>. 
+![Screen Shot 2022-10-15 at 10 21 05 PM](https://user-images.githubusercontent.com/107007458/196014867-9aea24f9-8e7e-4e39-aa54-0cdf1a110d7a.png). 
 
 ![Screen Shot 2022-10-15 at 10 22 40 PM](https://user-images.githubusercontent.com/107007458/196014898-3912f9e8-1dfd-45a9-88e1-ec902c326b5b.png)
 
